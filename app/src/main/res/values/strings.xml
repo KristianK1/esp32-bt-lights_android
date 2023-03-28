@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">basicBTcontrol</string>
+
+    <string name="connectedButton_CONNECTED">Connected</string>
+    <string name="connectedButton_DISCONNECTED">Disconnected</string>
+    <string name="connectedButton_CONNECTING">Connecting</string>
+
+    <string name="leftSliderTitle">Left side</string>
+    <string name="rightSliderTitle">Right side</string>
+
+
+</resources>
