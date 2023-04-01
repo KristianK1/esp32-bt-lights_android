@@ -28,8 +28,8 @@ class PreferencesManager(
         )
     }
 
-    fun getMac(): String? {
-        return getString(macAddressKey)
+    fun getMac(): String {
+        return getString(macAddressKey)?:""
     }
 
     fun saveMac(mac: String){

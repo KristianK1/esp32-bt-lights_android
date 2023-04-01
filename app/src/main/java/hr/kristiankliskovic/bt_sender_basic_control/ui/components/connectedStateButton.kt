@@ -13,6 +13,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import hr.kristiankliskovic.bt_sender_basic_control.R
 
@@ -25,20 +26,22 @@ enum class ConnectedStates {
 @Composable
 fun ConnectedStateButton(
     state: ConnectedStates,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
 ){
     Text(
         text = stringResource(
             id = if(state == ConnectedStates.CONNECTED) R.string.connectedButton_CONNECTED else if (state == ConnectedStates.DISCONNECTED) R.string.connectedButton_DISCONNECTED else R.string.connectedButton_CONNECTING),
-        modifier = Modifier
+        modifier = modifier
 //            .padding(20.dp)
             .clip(RoundedCornerShape(5.dp))
-            .background(
-                color = if(state == ConnectedStates.CONNECTED) Color.Green.copy(alpha = 0.3f) else if (state == ConnectedStates.DISCONNECTED) Color.Red.copy(alpha = 0.3f) else Color.Yellow.copy(alpha = 0.3f)
-            )
-            .padding(20.dp)
             .clickable {
                 onClick()
             }
+            .background(
+                color = if(state == ConnectedStates.CONNECTED) Color.Green.copy(alpha = 0.3f) else if (state == ConnectedStates.DISCONNECTED) Color.Red.copy(alpha = 0.3f) else Color.Yellow.copy(alpha = 0.3f)
+            )
+            .padding(20.dp),
+        textAlign = TextAlign.Center,
     )
 }

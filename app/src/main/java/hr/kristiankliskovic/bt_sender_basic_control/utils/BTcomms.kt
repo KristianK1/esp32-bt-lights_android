@@ -4,7 +4,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-class BluetoothComunication(){
+class BluetoothComunication{
 
     private val connectedInternal: MutableStateFlow<Boolean> = MutableStateFlow(false);
     val connected: StateFlow<Boolean> = connectedInternal.asStateFlow();

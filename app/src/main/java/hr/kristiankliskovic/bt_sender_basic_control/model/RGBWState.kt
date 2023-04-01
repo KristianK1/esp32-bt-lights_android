@@ -5,4 +5,10 @@ data class RGBWState (
     var G: Float,
     var B: Float,
     var W: Float,
-)
+){
+    companion object {
+        fun empty(): RGBWState {
+            return RGBWState(0f, 0f, 0f, 0f);
+        }
+    }
+}

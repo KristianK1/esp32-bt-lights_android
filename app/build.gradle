@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "hr.kristiankliskovic.bt_sender_basic_control"
-        minSdk 26
+        minSdk 23
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -67,5 +67,8 @@ dependencies {
     implementation "io.insert-koin:koin-androidx-compose:$koin_compose_version"
 
     implementation "androidx.security:security-crypto:1.1.0-alpha04"
+
+    def nav_version = "2.5.3"
+    implementation "androidx.navigation:navigation-compose:$nav_version"
 
 }

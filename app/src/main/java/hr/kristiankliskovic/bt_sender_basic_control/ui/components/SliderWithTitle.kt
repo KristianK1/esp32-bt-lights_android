@@ -29,7 +29,17 @@ data class SliderWithTitleViewState(
     val text: String,
     val mainColor: Color,
     val currentValue: MutableState<Float>,
-)
+){
+    companion object{
+        fun empty(): SliderWithTitleViewState{
+            return SliderWithTitleViewState(
+                text = "",
+                mainColor = Color.Black,
+                currentValue = mutableStateOf(0f)
+            )
+        }
+    }
+}
 
 
 @Composable
@@ -60,8 +70,9 @@ fun SliderWithTitle(
         VerticalSlider(
             value = item.currentValue.value,
             onValueChange = { it ->
-                item.currentValue.value = it;
-                Log.i("slider", "$it");
+                item.currentValue.value = it
+                Log.i("slider", "$it")
+                selectValue(it)
             },
             modifier = Modifier
                 .align(Alignment.CenterHorizontally),

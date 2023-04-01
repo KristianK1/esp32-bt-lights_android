@@ -9,25 +9,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ConnectedStateButton(
+fun StateButton(
     state: Boolean,
     text: String,
-    onClick: () -> Unit
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
 ){
     Text(
         text = text,
-        modifier = Modifier
+        modifier = modifier
 //            .padding(20.dp)
             .clip(RoundedCornerShape(5.dp))
-            .background(
-                color = if(state) Color.DarkGray else Color.LightGray
-            )
-            .padding(20.dp)
             .clickable {
                 onClick()
-            }
+            }.background(
+                color = if(state) Color.DarkGray else Color.LightGray
+            )
+            .padding(20.dp),
+        textAlign = TextAlign.Center,
     )
 }

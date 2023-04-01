@@ -1,5 +1,6 @@
 package hr.kristiankliskovic.bt_sender_basic_control.ui.components
 
+import android.transition.Slide
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
@@ -21,7 +22,19 @@ data class RGBWSlidersViewState(
     val stateG: SliderWithTitleViewState,
     val stateB: SliderWithTitleViewState,
     val stateW: SliderWithTitleViewState,
-)
+){
+    companion object{
+        fun empty(): RGBWSlidersViewState{
+            return RGBWSlidersViewState(
+                title = "",
+                stateR = SliderWithTitleViewState.empty(),
+                stateG = SliderWithTitleViewState.empty(),
+                stateB = SliderWithTitleViewState.empty(),
+                stateW = SliderWithTitleViewState.empty(),
+            )
+        }
+    }
+}
 
 @Composable
 fun RGBWSliders(
@@ -124,16 +137,16 @@ fun PreviewRGBWSlider(){
     RGBWSliders(
         state,
         emitStateR = {
-            stateR.currentValue.value = it
+//            stateR.currentValue = it
         },
         emitStateG = {
-            stateG.currentValue.value = it
+//            stateG.currentValue.value = it
         },
         emitStateB = {
-            stateB.currentValue.value = it
+//            stateB.currentValue.value = it
         },
         emitStateW = {
-            stateW.currentValue.value = it
+//            stateW.currentValue.value = it
         },
         modifier = Modifier
             .padding(10.dp)

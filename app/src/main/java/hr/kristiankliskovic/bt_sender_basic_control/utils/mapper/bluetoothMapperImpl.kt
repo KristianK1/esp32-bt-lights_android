@@ -1,14 +1,9 @@
 package hr.kristiankliskovic.bt_sender_basic_control.utils.mapper
 
-import hr.kristiankliskovic.bt_sender_basic_control.model.RGBWState
+import hr.kristiankliskovic.bt_sender_basic_control.model.TotalLightsState
 
 class bluetoothMapperImpl: bluetoothMapper {
-    override fun dataToBTpackage(
-        offButton: Boolean,
-        policeButton: Boolean,
-        leftSlider: RGBWState,
-        rightSlider: RGBWState,
-    ): String{
-    return "THIS NEEDS DATA PROTOCOL";
+    override fun dataToBTpackage(data: TotalLightsState): String{
+        return "THIS NEEDS DATA PROTOCOL" //TODO implement this
     }
 }
