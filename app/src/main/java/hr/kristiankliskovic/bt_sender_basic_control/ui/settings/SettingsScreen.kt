@@ -1,12 +1,13 @@
 package hr.kristiankliskovic.bt_sender_basic_control.ui.settings
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -21,15 +22,25 @@ fun SettingsRoute(
     viewModel: SettingsViewModel,
     navigateBack: () -> Unit,
 ){
-    SettingsScreen(viewModel = viewModel, navigateBack = navigateBack)
+    SettingsScreen(
+        startMac = viewModel.getMac(),
+        saveMac = {
+          viewModel.saveMac(it)
+        },
+        navigateBack = navigateBack
+    )
 }
 
 @Composable
 fun SettingsScreen(
-    viewModel: SettingsViewModel,
+    startMac: String,
+    saveMac: (String) -> Unit,
     navigateBack: () -> Unit,
 ){
-    var value = viewModel.getMac()
+    Log.i("sviki", "startMac $startMac")
+    var value by remember {
+        mutableStateOf(startMac)
+    }
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -50,6 +61,7 @@ fun SettingsScreen(
         )
 
         OutlineTextWrapper(
+            initValue = startMac,
             label = "MAC address of device",
             placeholder = "XX:XX:XX:XX:XX:XX",
             onChange = {
@@ -67,7 +79,10 @@ fun SettingsScreen(
             modifier = Modifier
                 .clip(RoundedCornerShape(5.dp))
                 .background(Color.Red)
-                .clickable { viewModel.saveMac(value) }
+                .clickable {
+                    saveMac(value)
+                    navigateBack()
+                }
                 .padding(10.dp)
         )
     }
