@@ -13,4 +13,8 @@ interface Repository {
     fun changeState(state: LightsStatesEnum)
     fun saveMac(mac: String)
     fun getMac(): String
+
+    fun connect()
+    fun disconnect()
+    suspend fun sendData()
 }

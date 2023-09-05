@@ -55,13 +55,15 @@ class HomeScreenViewModel(
 
     private fun connect(){
         viewModelScope.launch {
-
+            mainRepository.connect()
         }
     }
 
     private fun disconnect(){
         viewModelScope.launch {
-
+            mainRepository.disconnect()
         }
     }
+
+
 }

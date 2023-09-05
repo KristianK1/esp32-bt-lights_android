@@ -1,5 +1,6 @@
 package hr.kristiankliskovic.bt_sender_basic_control
 
+import android.app.Activity
 import android.app.Application
 import android.util.Log
 import hr.kristiankliskovic.bt_sender_basic_control.data.repository.di.mainRepositoryModule
@@ -33,4 +34,6 @@ class basicBTcontrol: Application() {
     companion object{
         lateinit var application: Application
     }
+
+
 }

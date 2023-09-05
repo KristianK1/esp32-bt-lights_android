@@ -1,12 +1,5 @@
 package hr.kristiankliskovic.bt_sender_basic_control.data.repository
 
-import hr.kristiankliskovic.bt_sender_basic_control.data.sharedPrefs.PreferencesManager
-import hr.kristiankliskovic.bt_sender_basic_control.model.ColorEnum
-import hr.kristiankliskovic.bt_sender_basic_control.model.PositionEnum
-import hr.kristiankliskovic.bt_sender_basic_control.model.RGBWState
-import hr.kristiankliskovic.bt_sender_basic_control.utils.BluetoothComunication
-import hr.kristiankliskovic.bt_sender_basic_control.utils.mapper.bluetoothMapper
-
 //class MainRepository(
 //    val bluetoothComunication: BluetoothComunication,
 //    val preferencesManager: PreferencesManager,
